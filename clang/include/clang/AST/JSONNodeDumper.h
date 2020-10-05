@@ -161,6 +161,8 @@ class JSONNodeDumper
   llvm::json::Object createQualType(QualType QT, bool Desugar = true);
   llvm::json::Object createBareDeclRef(const Decl *D);
   void writeBareDeclRef(const Decl *D);
+  void dumpBareDeclRef(const Decl *D);
+  void dumpType(QualType QT);
   llvm::json::Object createCXXRecordDefinitionData(const CXXRecordDecl *RD);
   llvm::json::Object createCXXBaseSpecifier(const CXXBaseSpecifier &BS);
   std::string createAccessSpecifier(AccessSpecifier AS);
@@ -205,6 +207,9 @@ public:
   void Visit(const BlockDecl::Capture &C);
   void Visit(const GenericSelectionExpr::ConstAssociation &A);
   void Visit(const APValue &Value, QualType Ty);
+
+// Implements Visit methods for Attrs.
+#include "clang/AST/AttrJSONNodeDump.inc"
 
   void VisitTypedefType(const TypedefType *TT);
   void VisitFunctionType(const FunctionType *T);

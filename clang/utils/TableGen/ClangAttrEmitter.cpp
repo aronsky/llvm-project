@@ -24,6 +24,7 @@
 #include "llvm/ADT/StringSwitch.h"
 #include "llvm/ADT/iterator_range.h"
 #include "llvm/Support/ErrorHandling.h"
+#include "llvm/Support/JSON.h"
 #include "llvm/Support/raw_ostream.h"
 #include "llvm/TableGen/Error.h"
 #include "llvm/TableGen/Record.h"
@@ -3895,7 +3896,7 @@ void EmitClangAttrParsedAttrKinds(RecordKeeper &Records, raw_ostream &OS) {
      << "}\n";
 }
 
-// Emits the code to dump an attribute.
+// Emits the code to dump an attribute as text.
 void EmitClangAttrTextNodeDump(RecordKeeper &Records, raw_ostream &OS) {
   emitSourceFileHeader("Attribute text node dumper", OS);
 
@@ -3929,6 +3930,58 @@ void EmitClangAttrTextNodeDump(RecordKeeper &Records, raw_ostream &OS) {
       OS << SS.str();
       OS << "  }\n";
     }
+  }
+}
+
+// Emits the code to dump an attribute as JSON.
+void EmitClangAttrJSONNodeDump(RecordKeeper &Records, raw_ostream &OS) {
+  emitSourceFileHeader("Attribute text node dumper", OS);
+
+  std::vector<Record *> Attrs = Records.getAllDerivedDefinitions("Attr"), Args;
+  for (const auto *Attr : Attrs) {
+    const Record &R = *Attr;
+    if (!R.getValueAsBit("ASTNode"))
+      continue;
+
+    OS << "  void Visit" << R.getName() << "Attr(const " << R.getName()
+       << "Attr *A) {\n";
+
+    // If the attribute has a semantically-meaningful name (which is determined
+    // by whether there is a Spelling enumeration for it), then write out the
+    // spelling used for the attribute.
+
+    std::string FunctionContent;
+    llvm::raw_string_ostream SS(FunctionContent);
+
+    Args = R.getValueAsListOfDefs("Args");
+
+    if (!Args.empty())
+      OS << "    const auto *SA = cast<" << R.getName()
+         << "Attr>(A); (void)SA;\n"
+         << "    llvm::json::Array Args;\n";
+
+    std::vector<FlattenedSpelling> Spellings = GetFlattenedSpellings(R);
+    if (Spellings.size() > 1 && !SpellingNamesAreCommon(Spellings))
+      OS << "    JOS.attribute(\"spelling\", A->getSpelling());\n";
+
+    for (const auto *Arg : Args) {
+      std::string ArgContent;
+      llvm::raw_string_ostream SS(ArgContent);
+
+      createArgument(*Arg, R.getName())->writeDump(SS);
+
+      if (SS.tell())
+        OS << "    {\n"
+           << "        std::string Str;\n"
+           << "        llvm::raw_string_ostream OS(Str);\n"
+           << SS.str() << "        Args.push_back(OS.str());\n"
+           << "    }\n";
+    }
+
+    if (!Args.empty())
+      OS << "    JOS.attribute(\"args\", std::move(Args));\n";
+
+    OS << "}\n";
   }
 }
 

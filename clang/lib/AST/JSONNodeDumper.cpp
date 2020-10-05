@@ -306,6 +306,12 @@ void JSONNodeDumper::writeBareDeclRef(const Decl *D) {
     JOS.attribute("type", createQualType(VD->getType()));
 }
 
+void JSONNodeDumper::dumpBareDeclRef(const Decl *D) { writeBareDeclRef(D); }
+
+void JSONNodeDumper::dumpType(QualType QT) {
+  JOS.attribute("type", createQualType(QT));
+}
+
 llvm::json::Object JSONNodeDumper::createBareDeclRef(const Decl *D) {
   llvm::json::Object Ret{{"id", createPointerRepresentation(D)}};
   if (!D)
