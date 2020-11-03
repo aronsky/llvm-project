@@ -1461,6 +1461,9 @@ void TestDependentGenericSelectionExpr(Ty T) {
 // CHECK-NEXT:     "end": {}
 // CHECK-NEXT:    },
 // CHECK-NEXT:    "implicit": true
+// CHECK-NEXT:    "args": [
+// CHECK-NEXT:     " Default"
+// CHECK-NEXT:    ]
 // CHECK-NEXT:   },
 // CHECK-NEXT:   {
 // CHECK-NEXT:    "id": "0x{{.*}}",
@@ -1479,6 +1482,10 @@ void TestDependentGenericSelectionExpr(Ty T) {
 // CHECK-NEXT:     "end": {}
 // CHECK-NEXT:    },
 // CHECK-NEXT:    "implicit": true
+// CHECK-NEXT:    "args": [
+// CHECK-NEXT:     " 1",
+// CHECK-NEXT:     ""
+// CHECK-NEXT:    ]
 // CHECK-NEXT:   }
 // CHECK-NEXT:  ]
 // CHECK-NEXT: }
@@ -1531,6 +1538,9 @@ void TestDependentGenericSelectionExpr(Ty T) {
 // CHECK-NEXT:     "end": {}
 // CHECK-NEXT:    },
 // CHECK-NEXT:    "implicit": true
+// CHECK-NEXT:    "args": [
+// CHECK-NEXT:     " Default"
+// CHECK-NEXT:    ]
 // CHECK-NEXT:   },
 // CHECK-NEXT:   {
 // CHECK-NEXT:    "id": "0x{{.*}}",
@@ -1549,6 +1559,10 @@ void TestDependentGenericSelectionExpr(Ty T) {
 // CHECK-NEXT:     "end": {}
 // CHECK-NEXT:    },
 // CHECK-NEXT:    "implicit": true
+// CHECK-NEXT:    "args": [
+// CHECK-NEXT:     " 1",
+// CHECK-NEXT:     ""
+// CHECK-NEXT:    ]
 // CHECK-NEXT:   },
 // CHECK-NEXT:   {
 // CHECK-NEXT:    "id": "0x{{.*}}",
@@ -1558,6 +1572,9 @@ void TestDependentGenericSelectionExpr(Ty T) {
 // CHECK-NEXT:     "end": {}
 // CHECK-NEXT:    },
 // CHECK-NEXT:    "implicit": true
+// CHECK-NEXT:    "args": [
+// CHECK-NEXT:     " 2"
+// CHECK-NEXT:    ]
 // CHECK-NEXT:   }
 // CHECK-NEXT:  ]
 // CHECK-NEXT: }
@@ -1598,6 +1615,9 @@ void TestDependentGenericSelectionExpr(Ty T) {
 // CHECK-NEXT:     "end": {}
 // CHECK-NEXT:    },
 // CHECK-NEXT:    "implicit": true
+// CHECK-NEXT:    "args": [
+// CHECK-NEXT:     " Default"
+// CHECK-NEXT:    ]
 // CHECK-NEXT:   },
 // CHECK-NEXT:   {
 // CHECK-NEXT:    "id": "0x{{.*}}",
@@ -1616,6 +1636,10 @@ void TestDependentGenericSelectionExpr(Ty T) {
 // CHECK-NEXT:     "end": {}
 // CHECK-NEXT:    },
 // CHECK-NEXT:    "implicit": true
+// CHECK-NEXT:    "args": [
+// CHECK-NEXT:     " 1"
+// CHECK-NEXT:     ""
+// CHECK-NEXT:    ]
 // CHECK-NEXT:   }
 // CHECK-NEXT:  ]
 // CHECK-NEXT: }
@@ -1668,6 +1692,9 @@ void TestDependentGenericSelectionExpr(Ty T) {
 // CHECK-NEXT:     "end": {}
 // CHECK-NEXT:    },
 // CHECK-NEXT:    "implicit": true
+// CHECK-NEXT:    "args": [
+// CHECK-NEXT:     " Default"
+// CHECK-NEXT:    ]
 // CHECK-NEXT:   },
 // CHECK-NEXT:   {
 // CHECK-NEXT:    "id": "0x{{.*}}",
@@ -1686,6 +1713,10 @@ void TestDependentGenericSelectionExpr(Ty T) {
 // CHECK-NEXT:     "end": {}
 // CHECK-NEXT:    },
 // CHECK-NEXT:    "implicit": true
+// CHECK-NEXT:    "args": [
+// CHECK-NEXT:     " 1"
+// CHECK-NEXT:     ""
+// CHECK-NEXT:    ]
 // CHECK-NEXT:   },
 // CHECK-NEXT:   {
 // CHECK-NEXT:    "id": "0x{{.*}}",
@@ -1695,6 +1726,9 @@ void TestDependentGenericSelectionExpr(Ty T) {
 // CHECK-NEXT:     "end": {}
 // CHECK-NEXT:    },
 // CHECK-NEXT:    "implicit": true
+// CHECK-NEXT:    "args": [
+// CHECK-NEXT:     " 2"
+// CHECK-NEXT:    ]
 // CHECK-NEXT:   }
 // CHECK-NEXT:  ]
 // CHECK-NEXT: }
@@ -1735,6 +1769,9 @@ void TestDependentGenericSelectionExpr(Ty T) {
 // CHECK-NEXT:     "end": {}
 // CHECK-NEXT:    },
 // CHECK-NEXT:    "implicit": true
+// CHECK-NEXT:    "args": [
+// CHECK-NEXT:     " Default"
+// CHECK-NEXT:    ]
 // CHECK-NEXT:   }
 // CHECK-NEXT:  ]
 // CHECK-NEXT: }
@@ -1787,6 +1824,9 @@ void TestDependentGenericSelectionExpr(Ty T) {
 // CHECK-NEXT:     "end": {}
 // CHECK-NEXT:    },
 // CHECK-NEXT:    "implicit": true
+// CHECK-NEXT:    "args": [
+// CHECK-NEXT:     " Default"
+// CHECK-NEXT:    ]
 // CHECK-NEXT:   }
 // CHECK-NEXT:  ]
 // CHECK-NEXT: }
@@ -1827,6 +1867,9 @@ void TestDependentGenericSelectionExpr(Ty T) {
 // CHECK-NEXT:     "end": {}
 // CHECK-NEXT:    },
 // CHECK-NEXT:    "implicit": true
+// CHECK-NEXT:    "args": [
+// CHECK-NEXT:     " Default"
+// CHECK-NEXT:    ]
 // CHECK-NEXT:   }
 // CHECK-NEXT:  ]
 // CHECK-NEXT: }
@@ -1879,6 +1922,9 @@ void TestDependentGenericSelectionExpr(Ty T) {
 // CHECK-NEXT:     "end": {}
 // CHECK-NEXT:    },
 // CHECK-NEXT:    "implicit": true
+// CHECK-NEXT:    "args": [
+// CHECK-NEXT:     " Default"
+// CHECK-NEXT:    ]
 // CHECK-NEXT:   }
 // CHECK-NEXT:  ]
 // CHECK-NEXT: }
